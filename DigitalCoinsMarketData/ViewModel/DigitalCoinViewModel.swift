@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol RefreshTableViewDelegate {
+protocol NetworkingResultDelegate {
     
-    func refreshTableView(digital_Coin_Model: [DigitalCoinModel])
+    func sendSuccessResult(isSuccess:Bool)
     func remindUserConnectionError(errorString:String)
     
     }
@@ -18,11 +18,11 @@ protocol RefreshTableViewDelegate {
 
 class DigitalCoinViewModel:NetworkManagerDelegate{
   
-    var delegate: RefreshTableViewDelegate?
+    var delegate: NetworkingResultDelegate?
     
     var digitalCoinDataArray:[DigitalCoinModel]=[]
     
-     func requestData(){
+     func requestNetworkingData(){
     
         var networkingClient = NetworkingClient()
         networkingClient.delegate = self
@@ -34,7 +34,7 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
         
         self.digitalCoinDataArray=digital_Coin_Model
         
-        self.delegate?.refreshTableView(digital_Coin_Model: digital_Coin_Model)
+        self.delegate?.sendSuccessResult(isSuccess: true)
        
         
             }
@@ -60,7 +60,6 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
             return "Vol "+digitalCoinDataArray[indexPath.row].volume
 
         }
-        
         
         return "Vol "+String(format:"%.0f",volumeNumber)
         
