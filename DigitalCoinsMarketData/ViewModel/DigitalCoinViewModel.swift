@@ -8,10 +8,12 @@
 
 import Foundation
 
-protocol NetworkingResultDelegate {
+
+ protocol NetworkingResultDelegate {
     
-    func sendSuccessResult(isSuccess:Bool)
-    func remindUserConnectionError(errorString:String)
+func sendSuccessResult(digital_Coin_TableViewModel:[DigitalCoinTableViewModel])
+func remindUserConnectionError(errorString:String)
+
     
     }
 
@@ -30,58 +32,98 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
     
     }
     
-      func didReceiveData(digital_Coin_Model: [DigitalCoinModel]) {
+    func didReceiveData(digital_Coin_Model: [DigitalCoinModel]) {
         
         self.digitalCoinDataArray=digital_Coin_Model
         
-        self.delegate?.sendSuccessResult(isSuccess: true)
-       
+        self.delegate?.sendSuccessResult(digital_Coin_TableViewModel:
+            self.classifyModel(digital_Coin_Model:digital_Coin_Model))
         
             }
-
     
-    func getDigitalCoinName(indexPath:IndexPath)->String{
-        
-        return digitalCoinDataArray[indexPath.row].baseAsset
-        
-    }
     
-    func getDigitalCoinCompareName(indexPath:IndexPath)->String{
+    func classifyModel(digital_Coin_Model:[DigitalCoinModel])->[DigitalCoinTableViewModel]{
         
-        return " / "+digitalCoinDataArray[indexPath.row].quoteAsset
-    }
-    
-    func getDigitalCoinVolume(indexPath:IndexPath)->String{
+        var bnbDigitalCoinModelArray:[DigitalCoinModel] = []
+        var btcDigitalCoinModelArray:[DigitalCoinModel] = []
+        var usdtDigitalCoinModelArray:[DigitalCoinModel] = []
+        var ethigDigitalCoinModelArray:[DigitalCoinModel] = []
+
+        var digitalCoinTableViewModelArray:[DigitalCoinTableViewModel] = []
         
-        guard let volumeNumber = Double(digitalCoinDataArray[indexPath.row].volume) else {
+        for item in digital_Coin_Model{
+            
+            switch item.quoteAsset{
+                
+           case "BNB":
+                    
+                bnbDigitalCoinModelArray.append(item)
+            case "BTC":
+                
+                btcDigitalCoinModelArray.append(item)
+                
+            case "ETH":
+                
+                ethigDigitalCoinModelArray.append(item)
+                
+            default:
+                usdtDigitalCoinModelArray.append(item)
 
-            print(digitalCoinDataArray[indexPath.row].volume)
-
-            return "Vol "+digitalCoinDataArray[indexPath.row].volume
-
+            }
+            
         }
         
-        return "Vol "+String(format:"%.0f",volumeNumber)
+        let bnbDigitalCoinViewModel=DigitalCoinTableViewModel(digitalCoinDataArray: bnbDigitalCoinModelArray)
+        
+        let btcDigitalCoinViewModel=DigitalCoinTableViewModel(digitalCoinDataArray: btcDigitalCoinModelArray)
+        
+        let ethDigitalCoinViewModel=DigitalCoinTableViewModel(digitalCoinDataArray: ethigDigitalCoinModelArray)
+        
+        let usdtDigitalCoinViewModel=DigitalCoinTableViewModel(digitalCoinDataArray: usdtDigitalCoinModelArray)
+        
+        digitalCoinTableViewModelArray.append(bnbDigitalCoinViewModel)
+        digitalCoinTableViewModelArray.append(btcDigitalCoinViewModel)
+        digitalCoinTableViewModelArray.append(ethDigitalCoinViewModel)
+        digitalCoinTableViewModelArray.append(usdtDigitalCoinViewModel)
+
+        return digitalCoinTableViewModelArray
         
     }
     
-    func getDigitalCoinRealPrice(indexPath:IndexPath)->String{
-        
-        return digitalCoinDataArray[indexPath.row].close
-    }
+        func searchByKeywords(searchWords:String,completion:@escaping ([DigitalCoinTableViewModel]?)->()){
     
-    func getDigitalCoinComparePrice(indexPath:IndexPath)->String{
+          let classifiedTableViewModelArray = self.classifyModel(digital_Coin_Model:digitalCoinDataArray)
+    
+            for item in classifiedTableViewModelArray{
+                
+                var i = 0
+                
+                while (i<item.digitalCoinDataArray.count){
+                    
+                    if item.digitalCoinDataArray[i].baseAsset != searchWords{
+                        
+                        item.digitalCoinDataArray.remove(at: i)
+                        i = i - 1
+                        
+                    }
+                    
+                    i = i + 1
+                }
+                
+            }
+            
+            
+            completion(classifiedTableViewModelArray)
+    
+        }
+    
+    func cancelSearch(){
         
-        return "$ "+digitalCoinDataArray[indexPath.row].close
+        self.delegate?.sendSuccessResult(digital_Coin_TableViewModel:
+            self.classifyModel(digital_Coin_Model:digitalCoinDataArray))
+        
         
     }
-    
-    func numberOfTableViewRows()->Int{
-        
-        return self.digitalCoinDataArray.count
-        
-    }
-    
     
      func dataCanNotConvert(errorString: String) {
         

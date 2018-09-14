@@ -11,13 +11,9 @@ import UIKit
 class DigitalCoinTableViewCell: UITableViewCell {
 
     @IBOutlet weak var assetNameLabel: UILabel!
-    
     @IBOutlet weak var assetCompareNameLabel: UILabel!
-    
-    
     @IBOutlet weak var volumLabel: UILabel!
     @IBOutlet weak var realPriceLabel: UILabel!
-    
     @IBOutlet weak var assetComparePriceLabel: UILabel!
     
     

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39429AFA21426510009D6F65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429AF921426510009D6F65 /* AppDelegate.swift */; };
-		39429AFC21426510009D6F65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429AFB21426510009D6F65 /* ViewController.swift */; };
+		39429AFC21426510009D6F65 /* DigitalCoinTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429AFB21426510009D6F65 /* DigitalCoinTableViewController.swift */; };
 		39429AFF21426510009D6F65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39429AFD21426510009D6F65 /* Main.storyboard */; };
 		39429B0121426511009D6F65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39429B0021426511009D6F65 /* Assets.xcassets */; };
 		39429B0421426511009D6F65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39429B0221426511009D6F65 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,8 @@
 		39429B1F21426B88009D6F65 /* DigitalCoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429B1E21426B88009D6F65 /* DigitalCoinViewModel.swift */; };
 		39429B2421426FB4009D6F65 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429B2321426FB4009D6F65 /* NetworkingManager.swift */; };
 		39429B2821429E48009D6F65 /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39429B2721429E48009D6F65 /* NetworkingClient.swift */; };
+		395E9BF2214A093A006A7AE5 /* DigitalCoinTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E9BF1214A093A006A7AE5 /* DigitalCoinTableViewModel.swift */; };
+		395E9BF4214A10C1006A7AE5 /* DigitalCoinPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395E9BF3214A10C1006A7AE5 /* DigitalCoinPagerViewController.swift */; };
 		39B0D6702143B629003F263E /* DigitalCoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0D66E2143B629003F263E /* DigitalCoinTableViewCell.swift */; };
 		6F635C11E6ACACEC9E62096C /* Pods_DigitalCoinsMarketData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F03D4509882C8A80B7A0D06A /* Pods_DigitalCoinsMarketData.framework */; };
 		A4955BF69C9B8C9096ED9058 /* Pods_DigitalCoinsMarketDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F240F25B33CE2AD36730D195 /* Pods_DigitalCoinsMarketDataTests.framework */; };
@@ -36,7 +38,7 @@
 		11F84B95AD1784CB429318B3 /* Pods-DigitalCoinsMarketDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinsMarketDataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalCoinsMarketDataTests/Pods-DigitalCoinsMarketDataTests.release.xcconfig"; sourceTree = "<group>"; };
 		39429AF621426510009D6F65 /* DigitalCoinsMarketData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCoinsMarketData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39429AF921426510009D6F65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39429AFB21426510009D6F65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39429AFB21426510009D6F65 /* DigitalCoinTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinTableViewController.swift; sourceTree = "<group>"; };
 		39429AFE21426510009D6F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39429B0021426511009D6F65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39429B0321426511009D6F65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		39429B1E21426B88009D6F65 /* DigitalCoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinViewModel.swift; sourceTree = "<group>"; };
 		39429B2321426FB4009D6F65 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		39429B2721429E48009D6F65 /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
+		395E9BF1214A093A006A7AE5 /* DigitalCoinTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinTableViewModel.swift; sourceTree = "<group>"; };
+		395E9BF3214A10C1006A7AE5 /* DigitalCoinPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinPagerViewController.swift; sourceTree = "<group>"; };
 		39B0D66E2143B629003F263E /* DigitalCoinTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinTableViewCell.swift; sourceTree = "<group>"; };
 		622DB139511AA01A26EB7C8D /* Pods-DigitalCoinsMarketData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinsMarketData.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalCoinsMarketData/Pods-DigitalCoinsMarketData.release.xcconfig"; sourceTree = "<group>"; };
 		786284CA5AAB2BCDE66CCA09 /* Pods-DigitalCoinsMarketDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinsMarketDataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigitalCoinsMarketDataTests/Pods-DigitalCoinsMarketDataTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +128,8 @@
 		39429B1921426B1D009D6F65 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39429AFB21426510009D6F65 /* ViewController.swift */,
+				395E9BF3214A10C1006A7AE5 /* DigitalCoinPagerViewController.swift */,
+				39429AFB21426510009D6F65 /* DigitalCoinTableViewController.swift */,
 				39B0D66E2143B629003F263E /* DigitalCoinTableViewCell.swift */,
 			);
 			path = View;
@@ -134,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				39429B1E21426B88009D6F65 /* DigitalCoinViewModel.swift */,
+				395E9BF1214A093A006A7AE5 /* DigitalCoinTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -349,7 +355,9 @@
 				39429B1D21426B68009D6F65 /* DigitalCoinModel.swift in Sources */,
 				39B0D6702143B629003F263E /* DigitalCoinTableViewCell.swift in Sources */,
 				39429B2421426FB4009D6F65 /* NetworkingManager.swift in Sources */,
-				39429AFC21426510009D6F65 /* ViewController.swift in Sources */,
+				395E9BF2214A093A006A7AE5 /* DigitalCoinTableViewModel.swift in Sources */,
+				395E9BF4214A10C1006A7AE5 /* DigitalCoinPagerViewController.swift in Sources */,
+				39429AFC21426510009D6F65 /* DigitalCoinTableViewController.swift in Sources */,
 				39429AFA21426510009D6F65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,10 +522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QPYZY5Q25;
 				INFOPLIST_FILE = DigitalCoinsMarketData/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.DigitalCoinsMarketData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -533,10 +538,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QPYZY5Q25;
 				INFOPLIST_FILE = DigitalCoinsMarketData/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.DigitalCoinsMarketData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -553,11 +555,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QPYZY5Q25;
 				INFOPLIST_FILE = DigitalCoinsMarketDataTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.DigitalCoinsMarketDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -575,11 +573,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QPYZY5Q25;
 				INFOPLIST_FILE = DigitalCoinsMarketDataTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.DigitalCoinsMarketDataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
