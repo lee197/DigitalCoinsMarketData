@@ -48,8 +48,6 @@ class DigitalCoinTableViewController: UIViewController,NetworkingResultDelegate{
             
             for itemTableViewModel in digital_Coin_TableViewModel{
 
-//                print(itemTableViewModel.digitalCoinDataArray[0].quoteAsset)
-//                print(self.digitalCoinTableViewModel.digitalCoinDataArray[0].quoteAsset)
 
                     if itemTableViewModel.digitalCoinDataArray[0].quoteAsset == self.digitalCoinTableViewModel.digitalCoinDataArray[0].quoteAsset{
                         

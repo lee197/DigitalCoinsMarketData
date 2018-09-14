@@ -15,7 +15,6 @@ import ObjectMapper
     
      mutating func didReceiveData(digital_Coin_Model:[DigitalCoinModel])
     
-     mutating func dataCanNotConvert(errorString:String)
     
      mutating func dataFetchFailed(errorString:String)
     
@@ -24,9 +23,9 @@ import ObjectMapper
 
  struct NetworkingClient {
     
-    var delegate: NetworkManagerDelegate?
+     var delegate: NetworkManagerDelegate?
 
-    
+    //request data and return the results by delegate
     mutating func requestData(){
         
         var mutateDelegate = delegate
@@ -41,15 +40,16 @@ import ObjectMapper
                     
                     let data = try response.mapJSON()
                     
-                    let digital_Coin_Model_Array = try Mapper<DigitalCoinViewModelData>().map(JSON: data as! [String : Any])!
+                    let digital_Coin_Model_Array =  Mapper<DigitalCoinViewModelData>().map(JSON: data as! [String : Any])!
                     
                     mutateDelegate?.didReceiveData(digital_Coin_Model: digital_Coin_Model_Array.data!)
+                    
                     return
                     
                 }catch {
                     
-                    mutateDelegate?.dataCanNotConvert(errorString: "Internet Error, please try again")
-                    
+                    mutateDelegate?.dataFetchFailed(errorString: "Internet Error, please try again")
+
                     return
                     
                 }
@@ -63,16 +63,15 @@ import ObjectMapper
                     return
 
                 }
-
-                mutateDelegate?.dataFetchFailed(errorString: errorString)
+                // leave this print for debugging
+                print(errorString)
+                
+                mutateDelegate?.dataFetchFailed(errorString: "Internet Error, please try again")
                 break
                 
             }
             
-            
-            
         }
-        
         
     }
 

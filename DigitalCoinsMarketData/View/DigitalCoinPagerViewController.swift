@@ -93,7 +93,6 @@ class DigitalCoinPagerViewController:ButtonBarPagerTabStripViewController,Networ
         if digital_Coin_TableViewModel.count != 0 {
             
         self.itemInfoArray=digital_Coin_TableViewModel
-            print(itemInfoArray[0].digitalCoinDataArray.count)
         self.reloadPagerTabStripView()
             
         }
@@ -103,6 +102,17 @@ class DigitalCoinPagerViewController:ButtonBarPagerTabStripViewController,Networ
   
     
     func remindUserConnectionError(errorString: String) {
+        
+        let alert = UIAlertController(title: "Alert", message: errorString, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.default){ (action:UIAlertAction) in
+            
+            self.requestNetworkingData()
+            
+        })
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     

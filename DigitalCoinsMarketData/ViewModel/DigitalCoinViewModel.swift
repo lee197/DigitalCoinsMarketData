@@ -9,7 +9,7 @@
 import Foundation
 
 
- protocol NetworkingResultDelegate {
+protocol NetworkingResultDelegate:NSObjectProtocol {
     
 func sendSuccessResult(digital_Coin_TableViewModel:[DigitalCoinTableViewModel])
 func remindUserConnectionError(errorString:String)
@@ -20,10 +20,21 @@ func remindUserConnectionError(errorString:String)
 
 class DigitalCoinViewModel:NetworkManagerDelegate{
   
-    var delegate: NetworkingResultDelegate?
+   weak var delegate: NetworkingResultDelegate?
     
     var digitalCoinDataArray:[DigitalCoinModel]=[]
     
+    
+    
+    /**
+     
+     request the data from API
+     
+     - parameter: Void
+     
+     - returns: Void
+     
+     */
      func requestNetworkingData(){
     
         var networkingClient = NetworkingClient()
@@ -31,6 +42,17 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
         networkingClient.requestData()
     
     }
+    
+    
+    /**
+     
+     receive the data from API
+     
+     - parameter: digital_Coin_Model is the data format from API
+     
+     - returns: Void
+     
+     */
     
     func didReceiveData(digital_Coin_Model: [DigitalCoinModel]) {
         
@@ -40,7 +62,15 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
             self.classifyModel(digital_Coin_Model:digital_Coin_Model))
         
             }
-    
+    /**
+
+     Arrange the model data to different TableViewModels for Tabcontroller to use
+     
+     - parameter: [DigitalCoinModel], digital_Coin_Model is the data format from API
+     
+     - returns: [DigitalCoinTableViewModel]
+     
+     */
     
     func classifyModel(digital_Coin_Model:[DigitalCoinModel])->[DigitalCoinTableViewModel]{
         
@@ -90,7 +120,18 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
         
     }
     
-        func searchByKeywords(searchWords:String,completion:@escaping ([DigitalCoinTableViewModel]?)->()){
+    
+    /**
+     
+     Receiving the searching keywords to get the correct search results
+     
+     - parameter: searchWords:the keywords for searching, completion:@escaping ([DigitalCoinTableViewModel]?)->() a call back function to pass the requested data to Viewcontroller
+     
+     - returns: Void
+     
+     */
+    
+    func searchByKeywords(searchWords:String,completion:@escaping ([DigitalCoinTableViewModel]?)->()){
     
           let classifiedTableViewModelArray = self.classifyModel(digital_Coin_Model:digitalCoinDataArray)
     
@@ -117,19 +158,34 @@ class DigitalCoinViewModel:NetworkManagerDelegate{
     
         }
     
+    /**
+     
+     When the search has been cancelled , return the normal data before search
+     
+     - parameter: Void
+     
+     - returns: Void
+     
+     */
+    
     func cancelSearch(){
         
         self.delegate?.sendSuccessResult(digital_Coin_TableViewModel:
             self.classifyModel(digital_Coin_Model:digitalCoinDataArray))
         
-        
     }
     
-     func dataCanNotConvert(errorString: String) {
-        
-        self.delegate?.remindUserConnectionError(errorString: errorString)
-
-    }
+    /**
+     
+     When data fetched failed, show proper alert to user
+     
+     - parameter: the error string about to show to user
+     
+     - returns: Void
+     
+     */
+    
+  
     
     func dataFetchFailed(errorString: String) {
         
